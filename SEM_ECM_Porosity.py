@@ -41,20 +41,16 @@ def porosity(image):
     plt.close()
    
     #Initialize black pixels count
-    n_b = 0
-    #Initialize white pixels count
-    n_w = 0
-    #Count píxels
-    for i in range(img.shape[0]):
-        for j in range(img.shape[1]):
-            if img[i,j] !=0:
-                n_w +=1
-            else:
-                n_b+=1
+    
+    #White pixels count
+    n_w = np.sum(img)
+    n_total = img.shape[0]*img.shape[1]
+    #Count black píxels
+    n_b = n_total - n_w
+    
     
     #Calculate the porosity
-    p = n_b/(n_w+n_b)
-    
+    p = n_b/(n_total)
     #Print the measured porosity
     print(f"Porosity = {p*100:0.2f} %")
     
