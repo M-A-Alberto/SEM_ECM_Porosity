@@ -58,6 +58,8 @@ def porosity(image):
     
     value=3#Length of the scale bar
     
+    savedir = r"XXXXXX" #Write the directory to save the images
+    
     fig, (ax1,ax2) = plt.subplots(1,2)
     
     ax1.imshow(original, cmap = "Greys")
@@ -70,8 +72,6 @@ def porosity(image):
     ax2.set_title("Binarized image",fontproperties=font,fontsize = 18)
     scalebar = ScaleBar(11.16, "nm", length_fraction=0.4,location = "lower right",box_alpha = 0,width_fraction = 0.03,fixed_value = value,fixed_units = "um")
     ax2.add_artist(scalebar)
-    
-    savedir = r"XXXXXX" #Write the directory to save the images
     
     plt.savefig(savedir+image.strip(".tif")+"plot.jpg",bbox_inches = "tight")
     plt.show()
